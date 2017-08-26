@@ -1,3 +1,5 @@
+'use strict'
+
 // Use Rövarspråket to encrypt/decrypt
 
 function encrypt(message) {
@@ -47,7 +49,7 @@ function decrypt(message) {
 const message = "puss är en liten korv"
 const encrypted = encrypt(message)
 
-console.log(encrypted)
+console.log('encrypted:', encrypted)
 // Sends over unsecure network
 
-console.log(decrypt(encrypted))
+console.log('decrypted:', decrypt(encrypted))
