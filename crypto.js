@@ -9,7 +9,7 @@ public a < b < c
 */
 
 const NodeRSA = require('node-rsa')
-const pubKey = new NodeRSA({ b: 512 })
+const key = new NodeRSA({ b: 512 })
 
 const text = 'Hello RSA!'
 const encrypted = key.encrypt(text, 'base64')
