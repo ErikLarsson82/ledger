@@ -37,6 +37,7 @@ console.log('decrypted: ', decrypted)
 */
 
 // Use other persons PUBLIC to encrypt and send, letting the reciever decrypt
+/*
 const ottoKey = new NodeRSA({ b: 64 })
 ottoKey.generateKeyPair()
 let ottoPubPEM = ottoKey.exportKey('pkcs1-public-pem')
@@ -54,4 +55,34 @@ console.log('encrypted', encrypted)
 
 const decrypted =ottoKey.decrypt(encrypted, 'utf8')
 console.log('decrypted', decrypted)
+*/
 
+// Use Rövarspråket to encrypt/decrypt
+
+function encrypt(message) {
+  let newMessage = ""
+  const consonants = "bcdfghjklmnpqrstvwxz"
+
+  for (let idx in message) {
+    const char = message[idx]
+    if (char === " ") {
+      newMessage += " "
+    } else {
+      const found = (consonants.indexOf(char) !== -1)
+      if (found) {
+        newMessage += char + "o" + char
+      } else {
+        newMessage += char
+      }
+    }
+  }
+  return newMessage
+}
+
+const message = "secret massage"
+const encrypted = encrypt(message) //"sosecroretot momasossosagoge"
+
+console.log(encrypted)
+// Sends over unsecure network
+
+//const unencrypted = decrypt(encrypted) //"secret message"
