@@ -1,3 +1,5 @@
+'use strict'
+
 const fs = require("fs")
 const sha = require("sha")
 
@@ -12,6 +14,7 @@ const ledger = []
 function mineTheCoinz(obj) {
     let found = false
     let seed = ""
+    let hash
     while(!found) {
         seed = (Math.round(Math.random() * 10000)).toString()
         obj.seed = seed
