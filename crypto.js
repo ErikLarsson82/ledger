@@ -29,7 +29,7 @@ console.log('encrypted: ', encrypted)
 
 const publicKey = (true) ? alicePubPEM : orvarPubPEM; //True for correct transaction, false for attack attempt
 
-const bobKey = new NodeRSA({ b: 64})
+const bobKey = new NodeRSA({ b: 64 })
 bobKey.importKey(publicKey, 'pkcs1-public-pem')
 
 const decrypted = bobKey.decryptPublic(encrypted, 'utf8')
@@ -43,7 +43,7 @@ let ottoPubPEM = ottoKey.exportKey('pkcs1-public-pem')
 
 //sends ottoPubPEM over unsecure network
 
-const puss = new NodeRSA({ b: 64})
+const puss = new NodeRSA({ b: 64 })
 puss.generateKeyPair()
 puss.importKey(ottoPubPEM, 'pkcs1-public-pem')
 
